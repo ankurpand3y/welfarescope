@@ -1,5 +1,7 @@
 # welfarescope
 
+![The Dynamic Self](the-dynamic-self.svg)
+
 Mechanistic interpretability experiment probing for a latent "self-preservation"
 direction in Qwen 2.5's residual stream, using cross-domain linear probing and
 LEAst-squares Concept Erasure (LEACE) to strip out generic sentiment confounds.
