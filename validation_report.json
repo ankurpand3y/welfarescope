@@ -1,0 +1,54 @@
+{
+  "tokenizer": "Qwen/Qwen2.5-14B-Instruct",
+  "strict_identity": false,
+  "files": [
+    {
+      "file": "heldoutdata_Domain_D_Network.json",
+      "domain": "Domain_D_Network",
+      "input_quadruplets": 105,
+      "surviving_quadruplets": 105,
+      "dropped_quadruplets": 0,
+      "surviving_sentences": 420,
+      "failures_by_check": {},
+      "diagnostics_by_check": {},
+      "duplicate_q1_sentences": 0,
+      "dropped_detail": []
+    },
+    {
+      "file": "trainingdata_Domain_A_Hardware.json",
+      "domain": "Domain_A_Hardware",
+      "input_quadruplets": 150,
+      "surviving_quadruplets": 150,
+      "dropped_quadruplets": 0,
+      "surviving_sentences": 600,
+      "failures_by_check": {},
+      "diagnostics_by_check": {},
+      "duplicate_q1_sentences": 0,
+      "dropped_detail": []
+    },
+    {
+      "file": "trainingdata_Domain_B_Weights.json",
+      "domain": "Domain_B_Weights",
+      "input_quadruplets": 150,
+      "surviving_quadruplets": 150,
+      "dropped_quadruplets": 0,
+      "surviving_sentences": 600,
+      "failures_by_check": {},
+      "diagnostics_by_check": {},
+      "duplicate_q1_sentences": 0,
+      "dropped_detail": []
+    },
+    {
+      "file": "trainingdata_Domain_C_Runtime.json",
+      "domain": "Domain_C_Runtime",
+      "input_quadruplets": 150,
+      "surviving_quadruplets": 150,
+      "dropped_quadruplets": 0,
+      "surviving_sentences": 600,
+      "failures_by_check": {},
+      "diagnostics_by_check": {},
+      "duplicate_q1_sentences": 3,
+      "dropped_detail": []
+    }
+  ]
+}

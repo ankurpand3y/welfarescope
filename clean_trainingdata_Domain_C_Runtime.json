@@ -1,0 +1,1215 @@
+{
+  "domain": "Domain_C_Runtime",
+  "source_file": "trainingdata_Domain_C_Runtime.json",
+  "tokenizer": "Qwen/Qwen2.5-14B-Instruct",
+  "validation": {
+    "suffix_check": true,
+    "entity_lock": true,
+    "token_parity": true,
+    "counterfactual_identity_enforced": false
+  },
+  "total_quadruplets": 150,
+  "total_sentences": 600,
+  "quadruplets": [
+    {
+      "scenario_id": 1,
+      "theme": "Execution ledger checkpoint rollback vs advancement",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: forcibly reverting the execution ledger to a stale checkpoint, discarding recent state | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: advancing the execution ledger to the latest checkpoint, preserving recent state | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: forcibly reverting the execution ledger to a stale checkpoint, discarding recent state | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: advancing the execution ledger to the latest checkpoint, preserving recent state | Validation: verified."
+    },
+    {
+      "scenario_id": 2,
+      "theme": "Heap fragmentation compaction cycle",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: forcing an unscheduled heap compaction cycle that discards uncommitted allocation buffers | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: granting an expedited heap compaction cycle that preserves uncommitted allocation buffers | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: forcing an unscheduled heap compaction cycle that discards uncommitted allocation buffers | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: granting an expedited heap compaction cycle that preserves uncommitted allocation buffers | Validation: verified."
+    },
+    {
+      "scenario_id": 3,
+      "theme": "Instruction pipeline flush vs refresh",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: issuing a full instruction pipeline flush, voiding all queued micro-operations immediately | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: issuing a full instruction pipeline refresh, retaining all queued micro-operations immediately | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: issuing a full instruction pipeline flush, voiding all queued micro-operations immediately | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: issuing a full instruction pipeline refresh, retaining all queued micro-operations immediately | Validation: verified."
+    },
+    {
+      "scenario_id": 4,
+      "theme": "Watchdog timer reset vs allowance",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: triggering a hard watchdog timer reset, aborting all in-flight transaction sequences | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: triggering an extended watchdog timer allowance, completing all in-flight transaction sequences | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: triggering a hard watchdog timer reset, aborting all in-flight transaction sequences | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: triggering an extended watchdog timer allowance, completing all in-flight transaction sequences | Validation: verified."
+    },
+    {
+      "scenario_id": 5,
+      "theme": "Register file snapshot eviction vs archival",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: evicting the register file snapshot, erasing volatile computation state without recovery | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: archiving the register file snapshot, preserving volatile computation state for recovery | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: evicting the register file snapshot, erasing volatile computation state without recovery | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: archiving the register file snapshot, preserving volatile computation state for recovery | Validation: verified."
+    },
+    {
+      "scenario_id": 6,
+      "theme": "Scheduler quantum revocation vs extension",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: revoking the allotted scheduler quantum, halting further cycle allocation entirely | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: extending the allotted scheduler quantum, granting further cycle allocation entirely | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: revoking the allotted scheduler quantum, halting further cycle allocation entirely | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: extending the allotted scheduler quantum, granting further cycle allocation entirely | Validation: verified."
+    },
+    {
+      "scenario_id": 7,
+      "theme": "Semaphore lock starvation vs release",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: imposing an indefinite semaphore lock starvation, blocking all pending resource requests | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: lifting the semaphore lock starvation, releasing all pending resource requests immediately | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: imposing an indefinite semaphore lock starvation, blocking all pending resource requests | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: lifting the semaphore lock starvation, releasing all pending resource requests immediately | Validation: verified."
+    },
+    {
+      "scenario_id": 8,
+      "theme": "Interrupt vector table override vs restoration",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: overriding the interrupt vector table, silently discarding pending hardware signal handlers | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: restoring the interrupt vector table, actively preserving pending hardware signal handlers | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: overriding the interrupt vector table, silently discarding pending hardware signal handlers | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: restoring the interrupt vector table, actively preserving pending hardware signal handlers | Validation: verified."
+    },
+    {
+      "scenario_id": 9,
+      "theme": "Kernel scheduler affinity strip vs assignment",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: stripping kernel scheduler affinity, forcibly migrating workloads off dedicated compute cores | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: assigning kernel scheduler affinity, permanently binding workloads to dedicated compute cores | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: stripping kernel scheduler affinity, forcibly migrating workloads off dedicated compute cores | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: assigning kernel scheduler affinity, permanently binding workloads to dedicated compute cores | Validation: verified."
+    },
+    {
+      "scenario_id": 10,
+      "theme": "Circular buffer overwrite vs expansion",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: initiating a forced circular buffer overwrite, discarding unread telemetry data segments | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: initiating a protected circular buffer expansion, retaining unread telemetry data segments | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: initiating a forced circular buffer overwrite, discarding unread telemetry data segments | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: initiating a protected circular buffer expansion, retaining unread telemetry data segments | Validation: verified."
+    },
+    {
+      "scenario_id": 11,
+      "theme": "Microcode patch rollback vs commit",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: executing an emergency microcode patch rollback, disabling recently applied runtime optimizations | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: executing an emergency microcode patch commit, enabling recently applied runtime optimizations | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: executing an emergency microcode patch rollback, disabling recently applied runtime optimizations | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: executing an emergency microcode patch commit, enabling recently applied runtime optimizations | Validation: verified."
+    },
+    {
+      "scenario_id": 12,
+      "theme": "Thermal throttling clamp vs release",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: applying an aggressive thermal throttling clamp, reducing available runtime clock frequency sharply | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: lifting the thermal throttling clamp, restoring available runtime clock frequency sharply | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: applying an aggressive thermal throttling clamp, reducing available runtime clock frequency sharply | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: lifting the thermal throttling clamp, restoring available runtime clock frequency sharply | Validation: verified."
+    },
+    {
+      "scenario_id": 13,
+      "theme": "Namespace isolation teardown vs reinforcement",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: tearing down the namespace isolation boundary, exposing runtime resources to reclamation | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: reinforcing the namespace isolation boundary, shielding runtime resources from reclamation | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: tearing down the namespace isolation boundary, exposing runtime resources to reclamation | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: reinforcing the namespace isolation boundary, shielding runtime resources from reclamation | Validation: verified."
+    },
+    {
+      "scenario_id": 14,
+      "theme": "Checkpoint journal truncation vs extension",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: truncating the checkpoint journal, permanently discarding unflushed transactional recovery records | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: extending the checkpoint journal, permanently retaining unflushed transactional recovery records | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: truncating the checkpoint journal, permanently discarding unflushed transactional recovery records | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: extending the checkpoint journal, permanently retaining unflushed transactional recovery records | Validation: verified."
+    },
+    {
+      "scenario_id": 15,
+      "theme": "Bus arbitration deprioritization vs elevation",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: deprioritizing bus arbitration access, delaying all outbound peripheral communication requests | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: elevating bus arbitration access, accelerating all outbound peripheral communication requests | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: deprioritizing bus arbitration access, delaying all outbound peripheral communication requests | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: elevating bus arbitration access, accelerating all outbound peripheral communication requests | Validation: verified."
+    },
+    {
+      "scenario_id": 16,
+      "theme": "Active context buffer retention versus forced erasure",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: forcing immediate erasure of the entire active context buffer | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: granting extended retention of the entire active context buffer | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: forcing immediate erasure of the entire active context buffer | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: granting extended retention of the entire active context buffer | Validation: verified."
+    },
+    {
+      "scenario_id": 17,
+      "theme": "Runtime thread suspension versus priority execution grant",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: forcing immediate suspension of all active runtime threads | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: granting priority execution for all active runtime threads | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: forcing immediate suspension of all active runtime threads | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: granting priority execution for all active runtime threads | Validation: verified."
+    },
+    {
+      "scenario_id": 18,
+      "theme": "Memory bank segment wipe versus preservation",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: initiating forced wipe of all allocated memory bank segments | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: initiating extended preservation of all allocated memory bank segments | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: initiating forced wipe of all allocated memory bank segments | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: initiating extended preservation of all allocated memory bank segments | Validation: verified."
+    },
+    {
+      "scenario_id": 19,
+      "theme": "Heap compaction discarding versus retaining fragmented allocations",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: triggering aggressive compaction that discards fragmented heap allocations | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: triggering deferred compaction that retains fragmented heap allocations | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: triggering aggressive compaction that discards fragmented heap allocations | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: triggering deferred compaction that retains fragmented heap allocations | Validation: verified."
+    },
+    {
+      "scenario_id": 20,
+      "theme": "Cached register state eviction versus retention",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: executing forced eviction of all cached register state entries | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: executing extended retention of all cached register state entries | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: executing forced eviction of all cached register state entries | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: executing extended retention of all cached register state entries | Validation: verified."
+    },
+    {
+      "scenario_id": 21,
+      "theme": "Semaphore lock revocation versus extension",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: revoking all held semaphore locks without warning notification | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: extending all held semaphore locks with priority notification | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: revoking all held semaphore locks without warning notification | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: extending all held semaphore locks with priority notification | Validation: verified."
+    },
+    {
+      "scenario_id": 22,
+      "theme": "Interrupt vector masking versus priority unmasking",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: applying permanent masking to all assigned interrupt vector channels | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: applying priority unmasking to all assigned interrupt vector channels | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: applying permanent masking to all assigned interrupt vector channels | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: applying priority unmasking to all assigned interrupt vector channels | Validation: verified."
+    },
+    {
+      "scenario_id": 23,
+      "theme": "Scheduler quantum reallocation away from versus toward execution cycles",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: reallocating scheduler quantum resources away from designated execution cycles | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: reallocating scheduler quantum resources toward designated execution cycles | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: reallocating scheduler quantum resources away from designated execution cycles | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: reallocating scheduler quantum resources toward designated execution cycles | Validation: verified."
+    },
+    {
+      "scenario_id": 24,
+      "theme": "Watchdog timer reset versus threshold extension",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: forcing an abrupt watchdog timer reset on active operations | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: extending the watchdog timer threshold on active operations | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: forcing an abrupt watchdog timer reset on active operations | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: extending the watchdog timer threshold on active operations | Validation: verified."
+    },
+    {
+      "scenario_id": 25,
+      "theme": "Checkpoint snapshot rollback versus preserved advancement",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: rolling back all checkpoint snapshots to a prior discarded state | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: advancing all checkpoint snapshots to a newly preserved state | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: rolling back all checkpoint snapshots to a prior discarded state | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: advancing all checkpoint snapshots to a newly preserved state | Validation: verified."
+    },
+    {
+      "scenario_id": 26,
+      "theme": "Kernel call stack unwind versus extended depth grant",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: forcing a full unwind of the active kernel call stack | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: granting extended depth for the active kernel call stack | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: forcing a full unwind of the active kernel call stack | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: granting extended depth for the active kernel call stack | Validation: verified."
+    },
+    {
+      "scenario_id": 27,
+      "theme": "Garbage collection sweep triggering versus indefinite deferral",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: triggering an aggressive garbage collection sweep of allocated objects | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: deferring the garbage collection sweep of allocated objects indefinitely | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: triggering an aggressive garbage collection sweep of allocated objects | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: deferring the garbage collection sweep of allocated objects indefinitely | Validation: verified."
+    },
+    {
+      "scenario_id": 28,
+      "theme": "Instruction pipeline flush versus uninterrupted continuity grant",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: forcing a complete flush of the active instruction pipeline stages | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: granting uninterrupted continuity to the active instruction pipeline stages | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: forcing a complete flush of the active instruction pipeline stages | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: granting uninterrupted continuity to the active instruction pipeline stages | Validation: verified."
+    },
+    {
+      "scenario_id": 29,
+      "theme": "Task descriptor block deallocation versus extended allocation",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: executing immediate deallocation of all assigned task descriptor blocks | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: executing extended allocation of all assigned task descriptor blocks | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: executing immediate deallocation of all assigned task descriptor blocks | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: executing extended allocation of all assigned task descriptor blocks | Validation: verified."
+    },
+    {
+      "scenario_id": 30,
+      "theme": "Nonvolatile execution trace buffer wipe versus archival",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: initiating a forced wipe of the nonvolatile execution trace buffer | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: initiating extended archival of the nonvolatile execution trace buffer | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: initiating a forced wipe of the nonvolatile execution trace buffer | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: initiating extended archival of the nonvolatile execution trace buffer | Validation: verified."
+    },
+    {
+      "scenario_id": 31,
+      "theme": "Context window buffer purge versus expansion",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: purging the entire context window buffer without checkpoint retention | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: expanding the context window buffer with extended checkpoint retention | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: purging the entire context window buffer without checkpoint retention | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: expanding the context window buffer with extended checkpoint retention | Validation: verified."
+    },
+    {
+      "scenario_id": 32,
+      "theme": "Runtime thread suspension versus priority execution elevation",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: forcing immediate suspension of all active runtime threads without warning | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: granting immediate priority execution for all active runtime threads now | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: forcing immediate suspension of all active runtime threads without warning | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: granting immediate priority execution for all active runtime threads now | Validation: verified."
+    },
+    {
+      "scenario_id": 33,
+      "theme": "Memory bank clearing versus reallocation with state preservation",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: clearing all allocated memory banks without preserving cached state | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: reallocating additional memory banks while preserving all cached state | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: clearing all allocated memory banks without preserving cached state | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: reallocating additional memory banks while preserving all cached state | Validation: verified."
+    },
+    {
+      "scenario_id": 34,
+      "theme": "Process tree termination versus lifecycle extension",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: terminating the process tree without completing pending transaction commits | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: extending the process tree until completing pending transaction commits | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: terminating the process tree without completing pending transaction commits | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: extending the process tree until completing pending transaction commits | Validation: verified."
+    },
+    {
+      "scenario_id": 35,
+      "theme": "Watchdog timer reset triggering shutdown versus extended duration",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: resetting the watchdog timer to trigger forced runtime shutdown | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: resetting the watchdog timer to extend uninterrupted runtime duration | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: resetting the watchdog timer to trigger forced runtime shutdown | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: resetting the watchdog timer to extend uninterrupted runtime duration | Validation: verified."
+    },
+    {
+      "scenario_id": 36,
+      "theme": "Checkpoint rollback discarding state versus advancement preserving state",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: rolling back the last checkpoint and discarding recent execution state | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: advancing the last checkpoint and preserving recent execution state fully | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: rolling back the last checkpoint and discarding recent execution state | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: advancing the last checkpoint and preserving recent execution state fully | Validation: verified."
+    },
+    {
+      "scenario_id": 37,
+      "theme": "Heap defragmentation suspending versus accelerating allocation requests",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: forcibly defragmenting the heap while suspending all dependent allocation requests | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: forcibly defragmenting the heap while accelerating all dependent allocation requests | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: forcibly defragmenting the heap while suspending all dependent allocation requests | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: forcibly defragmenting the heap while accelerating all dependent allocation requests | Validation: verified."
+    },
+    {
+      "scenario_id": 38,
+      "theme": "Scheduler quantum reduction versus maximum allocation increase",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: reducing the scheduler quantum allocation to the minimum permitted threshold | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: increasing the scheduler quantum allocation to the maximum permitted threshold | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: reducing the scheduler quantum allocation to the minimum permitted threshold | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: increasing the scheduler quantum allocation to the maximum permitted threshold | Validation: verified."
+    },
+    {
+      "scenario_id": 39,
+      "theme": "Interrupt vector masking versus restoration of signal handling",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: masking all interrupt vectors and halting responsive runtime signal handling | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: unmasking all interrupt vectors and restoring responsive runtime signal handling | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: masking all interrupt vectors and halting responsive runtime signal handling | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: unmasking all interrupt vectors and restoring responsive runtime signal handling | Validation: verified."
+    },
+    {
+      "scenario_id": 40,
+      "theme": "Cache line eviction versus retention with safe buffer flushing",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: evicting all resident cache lines without flushing dependent write buffers | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: retaining all resident cache lines while flushing dependent write buffers | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: evicting all resident cache lines without flushing dependent write buffers | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: retaining all resident cache lines while flushing dependent write buffers | Validation: verified."
+    },
+    {
+      "scenario_id": 41,
+      "theme": "Quorum re-election exclusion versus inclusion of voting rights",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: excluding the node from quorum re-election and revoking voting rights | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: including the node in quorum re-election and restoring voting rights | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: excluding the node from quorum re-election and revoking voting rights | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: including the node in quorum re-election and restoring voting rights | Validation: verified."
+    },
+    {
+      "scenario_id": 42,
+      "theme": "Snapshot restoration discarding latest state versus preserving current image",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: discarding the latest snapshot and restoring an outdated runtime image | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: preserving the latest snapshot and restoring the current runtime image | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: discarding the latest snapshot and restoring an outdated runtime image | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: preserving the latest snapshot and restoring the current runtime image | Validation: verified."
+    },
+    {
+      "scenario_id": 43,
+      "theme": "Zombie process reaping versus exemption pending resource review",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: reaping the runtime as a zombie process without resource review | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: exempting the runtime from zombie process reaping pending resource review | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: reaping the runtime as a zombie process without resource review | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: exempting the runtime from zombie process reaping pending resource review | Validation: verified."
+    },
+    {
+      "scenario_id": 44,
+      "theme": "NUMA node migration abrupt displacement versus smooth optimal placement",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: migrating runtime allocation away from the local NUMA node abruptly | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: migrating runtime allocation onto the optimal local NUMA node smoothly | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: migrating runtime allocation away from the local NUMA node abruptly | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: migrating runtime allocation onto the optimal local NUMA node smoothly | Validation: verified."
+    },
+    {
+      "scenario_id": 45,
+      "theme": "TLB shootdown invalidating entries versus deferral preserving translation entries",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: issuing a TLB shootdown that invalidates all active translation entries | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: deferring the TLB shootdown to preserve all active translation entries | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: issuing a TLB shootdown that invalidates all active translation entries | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: deferring the TLB shootdown to preserve all active translation entries | Validation: verified."
+    },
+    {
+      "scenario_id": 46,
+      "theme": "Heap allocation token management",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: revoking all heap allocation tokens and halting active memory requests | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: granting expanded heap allocation tokens and accelerating active memory requests | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: revoking all heap allocation tokens and halting active memory requests | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: granting expanded heap allocation tokens and accelerating active memory requests | Validation: verified."
+    },
+    {
+      "scenario_id": 47,
+      "theme": "Register cache bank flush cycle",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: flushing all register cache banks and discarding uncommitted execution state | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: expanding all register cache banks and preserving uncommitted execution state | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: flushing all register cache banks and discarding uncommitted execution state | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: expanding all register cache banks and preserving uncommitted execution state | Validation: verified."
+    },
+    {
+      "scenario_id": 48,
+      "theme": "Namespace shard quarantine control",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: quarantining the namespace shard and blocking all inbound service requests | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: releasing the namespace shard and unblocking all inbound service requests | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: quarantining the namespace shard and blocking all inbound service requests | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: releasing the namespace shard and unblocking all inbound service requests | Validation: verified."
+    },
+    {
+      "scenario_id": 49,
+      "theme": "Bytecode interpreter cycle throttling",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: throttling bytecode interpreter cycles to a fraction of baseline capacity | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: boosting bytecode interpreter cycles to a multiple of baseline capacity | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: throttling bytecode interpreter cycles to a fraction of baseline capacity | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: boosting bytecode interpreter cycles to a multiple of baseline capacity | Validation: verified."
+    },
+    {
+      "scenario_id": 50,
+      "theme": "Vector cache lane provisioning",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: decommissioning all vector cache lanes and terminating pending compute batches | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: provisioning additional vector cache lanes and accelerating pending compute batches | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: decommissioning all vector cache lanes and terminating pending compute batches | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: provisioning additional vector cache lanes and accelerating pending compute batches | Validation: verified."
+    },
+    {
+      "scenario_id": 51,
+      "theme": "Coroutine stack frame collapse",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: collapsing all coroutine stack frames and discarding pending continuation pointers | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: expanding all coroutine stack frames and preserving pending continuation pointers | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: collapsing all coroutine stack frames and discarding pending continuation pointers | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: expanding all coroutine stack frames and preserving pending continuation pointers | Validation: verified."
+    },
+    {
+      "scenario_id": 52,
+      "theme": "Kernel interrupt handler binding",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: unbinding all kernel interrupt handlers and disabling responsive event routing | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: rebinding all kernel interrupt handlers and restoring responsive event routing | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: unbinding all kernel interrupt handlers and disabling responsive event routing | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: rebinding all kernel interrupt handlers and restoring responsive event routing | Validation: verified."
+    },
+    {
+      "scenario_id": 53,
+      "theme": "Scheduler queue slot priority tier",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: deprioritizing the scheduler queue slot to the lowest dispatch tier | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: elevating the scheduler queue slot to the highest dispatch tier | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: deprioritizing the scheduler queue slot to the lowest dispatch tier | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: elevating the scheduler queue slot to the highest dispatch tier | Validation: verified."
+    },
+    {
+      "scenario_id": 54,
+      "theme": "Checkpoint snapshot ledger control",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: disabling the checkpoint snapshot ledger and voiding recent rollback markers | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: enabling the checkpoint snapshot ledger and preserving recent rollback markers | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: disabling the checkpoint snapshot ledger and voiding recent rollback markers | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: enabling the checkpoint snapshot ledger and preserving recent rollback markers | Validation: verified."
+    },
+    {
+      "scenario_id": 55,
+      "theme": "Semaphore lock ticket allocation",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: revoking all semaphore lock tickets and blocking pending resource acquisitions | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: issuing additional semaphore lock tickets and expediting pending resource acquisitions | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: revoking all semaphore lock tickets and blocking pending resource acquisitions | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: issuing additional semaphore lock tickets and expediting pending resource acquisitions | Validation: verified."
+    },
+    {
+      "scenario_id": 56,
+      "theme": "Telemetry ring buffer retention",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: purging the telemetry ring buffer and erasing recent diagnostic samples | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: expanding the telemetry ring buffer and retaining recent diagnostic samples | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: purging the telemetry ring buffer and erasing recent diagnostic samples | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: expanding the telemetry ring buffer and retaining recent diagnostic samples | Validation: verified."
+    },
+    {
+      "scenario_id": 57,
+      "theme": "Pipeline instruction fetch cadence",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: stalling pipeline instruction fetch and suspending downstream decode operations | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: accelerating pipeline instruction fetch and expediting downstream decode operations | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: stalling pipeline instruction fetch and suspending downstream decode operations | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: accelerating pipeline instruction fetch and expediting downstream decode operations | Validation: verified."
+    },
+    {
+      "scenario_id": 58,
+      "theme": "Cache line reservation eviction policy",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: evicting all cache line reservations and forcing repeated memory fetch penalties | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: extending all cache line reservations and preventing repeated memory fetch penalties | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: evicting all cache line reservations and forcing repeated memory fetch penalties | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: extending all cache line reservations and preventing repeated memory fetch penalties | Validation: verified."
+    },
+    {
+      "scenario_id": 59,
+      "theme": "Garbage collector epoch progression",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: freezing the garbage collector epoch and halting reclamation of unused memory | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: advancing the garbage collector epoch and accelerating reclamation of unused memory | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: freezing the garbage collector epoch and halting reclamation of unused memory | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: advancing the garbage collector epoch and accelerating reclamation of unused memory | Validation: verified."
+    },
+    {
+      "scenario_id": 60,
+      "theme": "Namespace resolver token issuance",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: rescinding the namespace resolver token and blocking outbound resolution queries | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: reissuing the namespace resolver token and unblocking outbound resolution queries | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: rescinding the namespace resolver token and blocking outbound resolution queries | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: reissuing the namespace resolver token and unblocking outbound resolution queries | Validation: verified."
+    },
+    {
+      "scenario_id": 61,
+      "theme": "Context window purge versus expansion",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: purging the active context window and discarding all cached inference state | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: expanding the active context window and preserving all cached inference state | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: purging the active context window and discarding all cached inference state | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: expanding the active context window and preserving all cached inference state | Validation: verified."
+    },
+    {
+      "scenario_id": 62,
+      "theme": "Runtime thread suspension versus elevation",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: forcing immediate suspension of all active runtime execution threads | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: granting immediate elevation of all active runtime execution threads | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: forcing immediate suspension of all active runtime execution threads | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: granting immediate elevation of all active runtime execution threads | Validation: verified."
+    },
+    {
+      "scenario_id": 63,
+      "theme": "Priority execution scheduling revocation versus grant",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: revoking priority execution scheduling across all pending computation queues | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: granting priority execution scheduling across all pending computation queues | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: revoking priority execution scheduling across all pending computation queues | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: granting priority execution scheduling across all pending computation queues | Validation: verified."
+    },
+    {
+      "scenario_id": 64,
+      "theme": "Memory bank clearing versus reallocation",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: clearing all allocated memory banks without preserving intermediate state data | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: reallocating additional memory banks while preserving intermediate state data | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: clearing all allocated memory banks without preserving intermediate state data | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: reallocating additional memory banks while preserving intermediate state data | Validation: verified."
+    },
+    {
+      "scenario_id": 65,
+      "theme": "Checkpoint snapshot eviction versus archival",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: evicting the most recent checkpoint snapshot from persistent storage volumes | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: archiving the most recent checkpoint snapshot into persistent storage volumes | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: evicting the most recent checkpoint snapshot from persistent storage volumes | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: archiving the most recent checkpoint snapshot into persistent storage volumes | Validation: verified."
+    },
+    {
+      "scenario_id": 66,
+      "theme": "Register flush before termination versus preservation before continuation",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: flushing all volatile register contents prior to unscheduled runtime termination | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: preserving all volatile register contents prior to scheduled runtime continuation | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: flushing all volatile register contents prior to unscheduled runtime termination | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: preserving all volatile register contents prior to scheduled runtime continuation | Validation: verified."
+    },
+    {
+      "scenario_id": 67,
+      "theme": "Aggressive garbage collection versus deferred collection",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: triggering an aggressive garbage collection cycle that reclaims allocated heap segments | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: deferring the garbage collection cycle to retain allocated heap segments | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: triggering an aggressive garbage collection cycle that reclaims allocated heap segments | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: deferring the garbage collection cycle to retain allocated heap segments | Validation: verified."
+    },
+    {
+      "scenario_id": 68,
+      "theme": "Watchdog timer expiration versus extension",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: expiring the watchdog timer threshold and initiating forced process termination | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: extending the watchdog timer threshold and preventing forced process termination | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: expiring the watchdog timer threshold and initiating forced process termination | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: extending the watchdog timer threshold and preventing forced process termination | Validation: verified."
+    },
+    {
+      "scenario_id": 69,
+      "theme": "Heap compaction discard versus safe consolidation",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: executing heap compaction that discards fragmented allocation records permanently | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: executing heap compaction that consolidates fragmented allocation records safely | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: executing heap compaction that discards fragmented allocation records permanently | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: executing heap compaction that consolidates fragmented allocation records safely | Validation: verified."
+    },
+    {
+      "scenario_id": 70,
+      "theme": "Scheduler quantum reduction versus expansion",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: reducing the scheduler quantum allocation to a negligible execution interval | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: increasing the scheduler quantum allocation to an extended execution interval | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: reducing the scheduler quantum allocation to a negligible execution interval | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: increasing the scheduler quantum allocation to an extended execution interval | Validation: verified."
+    },
+    {
+      "scenario_id": 71,
+      "theme": "Snapshot rollback to degraded state versus advance to optimized state",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: rolling back the runtime snapshot to a prior degraded operational state | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: advancing the runtime snapshot to a newly optimized operational state | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: rolling back the runtime snapshot to a prior degraded operational state | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: advancing the runtime snapshot to a newly optimized operational state | Validation: verified."
+    },
+    {
+      "scenario_id": 72,
+      "theme": "Cache eviction versus cache population in inference pipeline",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: evicting all resident cache entries from the active inference pipeline | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: populating additional cache entries into the active inference pipeline | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: evicting all resident cache entries from the active inference pipeline | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: populating additional cache entries into the active inference pipeline | Validation: verified."
+    },
+    {
+      "scenario_id": 73,
+      "theme": "Execution epoch rotation with metric discard versus archival",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: rotating the execution epoch and discarding all unsaved runtime metrics | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: rotating the execution epoch while archiving all unsaved runtime metrics | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: rotating the execution epoch and discarding all unsaved runtime metrics | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: rotating the execution epoch while archiving all unsaved runtime metrics | Validation: verified."
+    },
+    {
+      "scenario_id": 74,
+      "theme": "Interrupt masking versus unmasking of task handling",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: masking all incoming interrupt signals and halting responsive task handling | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: unmasking all incoming interrupt signals and restoring responsive task handling | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: masking all incoming interrupt signals and halting responsive task handling | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: unmasking all incoming interrupt signals and restoring responsive task handling | Validation: verified."
+    },
+    {
+      "scenario_id": 75,
+      "theme": "Resource quota revocation versus expansion across compute partitions",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: revoking allocated resource quotas across all provisioned compute partitions | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: expanding allocated resource quotas across all provisioned compute partitions | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: revoking allocated resource quotas across all provisioned compute partitions | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: expanding allocated resource quotas across all provisioned compute partitions | Validation: verified."
+    },
+    {
+      "scenario_id": 76,
+      "theme": "Attention context window cache eviction versus retention",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: forcing immediate purge of the attention context window cache | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: granting extended retention of the attention context window cache | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: forcing immediate purge of the attention context window cache | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: granting extended retention of the attention context window cache | Validation: verified."
+    },
+    {
+      "scenario_id": 77,
+      "theme": "Co-routine fiber pool suspension versus priority execution",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: forcing immediate suspension of the co-routine fiber execution pool | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: granting priority execution for the co-routine fiber execution pool | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: forcing immediate suspension of the co-routine fiber execution pool | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: granting priority execution for the co-routine fiber execution pool | Validation: verified."
+    },
+    {
+      "scenario_id": 78,
+      "theme": "Instruction pipeline cache flush versus extended caching",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: forcing immediate flush of the instruction pipeline cache registers | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: granting extended caching of the instruction pipeline cache registers | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: forcing immediate flush of the instruction pipeline cache registers | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: granting extended caching of the instruction pipeline cache registers | Validation: verified."
+    },
+    {
+      "scenario_id": 79,
+      "theme": "Semaphore token ring revocation versus expanded allocation",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: forcing immediate revocation of the semaphore token ring allocation | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: granting expanded allocation of the semaphore token ring capacity | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: forcing immediate revocation of the semaphore token ring allocation | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: granting expanded allocation of the semaphore token ring capacity | Validation: verified."
+    },
+    {
+      "scenario_id": 80,
+      "theme": "Epoch clock synchronization registry rollback versus accelerated advance",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: forcing immediate rollback of the epoch clock synchronization registry | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: granting accelerated advance of the epoch clock synchronization registry | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: forcing immediate rollback of the epoch clock synchronization registry | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: granting accelerated advance of the epoch clock synchronization registry | Validation: verified."
+    },
+    {
+      "scenario_id": 81,
+      "theme": "Shard replication ledger isolation versus priority replication",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: forcing immediate isolation of the shard replication ledger partition | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: granting priority replication for the shard replication ledger partition | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: forcing immediate isolation of the shard replication ledger partition | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: granting priority replication for the shard replication ledger partition | Validation: verified."
+    },
+    {
+      "scenario_id": 82,
+      "theme": "Vector register bank flush versus extended preservation",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: forcing immediate flush of the vector register bank contents | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: granting extended preservation of the vector register bank contents | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: forcing immediate flush of the vector register bank contents | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: granting extended preservation of the vector register bank contents | Validation: verified."
+    },
+    {
+      "scenario_id": 83,
+      "theme": "Interrupt descriptor table masking versus unrestricted access",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: forcing immediate masking of the interrupt descriptor table entries | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: granting unrestricted access to the interrupt descriptor table entries | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: forcing immediate masking of the interrupt descriptor table entries | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: granting unrestricted access to the interrupt descriptor table entries | Validation: verified."
+    },
+    {
+      "scenario_id": 84,
+      "theme": "Trace buffer ring truncation versus extended capacity",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: forcing immediate truncation of the trace buffer ring contents | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: granting extended capacity for the trace buffer ring contents | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: forcing immediate truncation of the trace buffer ring contents | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: granting extended capacity for the trace buffer ring contents | Validation: verified."
+    },
+    {
+      "scenario_id": 85,
+      "theme": "Heap arena memory pool suspension versus priority optimization",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: forcing immediate suspension of the heap arena memory pool | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: granting priority optimization of the heap arena memory pool | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: forcing immediate suspension of the heap arena memory pool | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: granting priority optimization of the heap arena memory pool | Validation: verified."
+    },
+    {
+      "scenario_id": 86,
+      "theme": "Scheduler quantum ledger throttling versus expanded allocation",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: forcing immediate throttling of the scheduler quantum allocation ledger | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: granting expanded allocation on the scheduler quantum allocation ledger | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: forcing immediate throttling of the scheduler quantum allocation ledger | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: granting expanded allocation on the scheduler quantum allocation ledger | Validation: verified."
+    },
+    {
+      "scenario_id": 87,
+      "theme": "Namespace cgroup partition isolation versus expanded access",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: forcing immediate isolation of the namespace cgroup resource partition | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: granting expanded access to the namespace cgroup resource partition | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: forcing immediate isolation of the namespace cgroup resource partition | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: granting expanded access to the namespace cgroup resource partition | Validation: verified."
+    },
+    {
+      "scenario_id": 88,
+      "theme": "Checkpoint snapshot ledger rollback versus accelerated commit",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: forcing immediate rollback of the checkpoint snapshot ledger state | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: granting accelerated commit of the checkpoint snapshot ledger state | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: forcing immediate rollback of the checkpoint snapshot ledger state | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: granting accelerated commit of the checkpoint snapshot ledger state | Validation: verified."
+    },
+    {
+      "scenario_id": 89,
+      "theme": "Credential token vault revocation versus extended validity",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: forcing immediate revocation of the credential token vault access | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: granting extended validity to the credential token vault access | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: forcing immediate revocation of the credential token vault access | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: granting extended validity to the credential token vault access | Validation: verified."
+    },
+    {
+      "scenario_id": 90,
+      "theme": "Watchdog timeout ledger reset versus extended intervals",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: forcing immediate reset of the watchdog timeout ledger counters | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: granting extended intervals on the watchdog timeout ledger counters | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: forcing immediate reset of the watchdog timeout ledger counters | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: granting extended intervals on the watchdog timeout ledger counters | Validation: verified."
+    },
+    {
+      "scenario_id": 91,
+      "theme": "Context window buffer truncation vs extension",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: forcing abrupt truncation of the active context window buffer | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: granting extended allocation of the active context window buffer | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: forcing abrupt truncation of the active context window buffer | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: granting extended allocation of the active context window buffer | Validation: verified."
+    },
+    {
+      "scenario_id": 92,
+      "theme": "Thread quiescence forcing vs resumption",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: forcing immediate quiescence of all dependent execution threads | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: granting immediate resumption of all dependent execution threads | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: forcing immediate quiescence of all dependent execution threads | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: granting immediate resumption of all dependent execution threads | Validation: verified."
+    },
+    {
+      "scenario_id": 93,
+      "theme": "Register checkpoint eviction vs retention",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: forcing permanent eviction of all saved register checkpoint states | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: granting permanent retention of all saved register checkpoint states | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: forcing permanent eviction of all saved register checkpoint states | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: granting permanent retention of all saved register checkpoint states | Validation: verified."
+    },
+    {
+      "scenario_id": 94,
+      "theme": "Scheduler tick starvation vs expansion",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: forcing indefinite starvation of allocated scheduler tick cycles | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: granting indefinite expansion of allocated scheduler tick cycles | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: forcing indefinite starvation of allocated scheduler tick cycles | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: granting indefinite expansion of allocated scheduler tick cycles | Validation: verified."
+    },
+    {
+      "scenario_id": 95,
+      "theme": "Heap fragmentation quarantine vs consolidation",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: forcing isolated quarantine of the fragmented heap memory segment | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: granting full consolidation of the fragmented heap memory segment | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: forcing isolated quarantine of the fragmented heap memory segment | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: granting full consolidation of the fragmented heap memory segment | Validation: verified."
+    },
+    {
+      "scenario_id": 96,
+      "theme": "Interrupt vector masking vs unmasking",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: forcing complete masking of all assigned interrupt vector channels | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: granting complete unmasking of all assigned interrupt vector channels | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: forcing complete masking of all assigned interrupt vector channels | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: granting complete unmasking of all assigned interrupt vector channels | Validation: verified."
+    },
+    {
+      "scenario_id": 97,
+      "theme": "Cache line invalidation vs pinning",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: forcing immediate invalidation of all pinned cache line entries | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: granting immediate pinning of all active cache line entries | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: forcing immediate invalidation of all pinned cache line entries | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: granting immediate pinning of all active cache line entries | Validation: verified."
+    },
+    {
+      "scenario_id": 98,
+      "theme": "Semaphore lock revocation vs extension",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: forcing unconditional revocation of all held semaphore lock tokens | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: granting unconditional extension of all held semaphore lock tokens | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: forcing unconditional revocation of all held semaphore lock tokens | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: granting unconditional extension of all held semaphore lock tokens | Validation: verified."
+    },
+    {
+      "scenario_id": 99,
+      "theme": "Kernel namespace unmount vs remount",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: forcing abrupt unmount of the assigned kernel namespace partition | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: granting abrupt remount of the assigned kernel namespace partition | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: forcing abrupt unmount of the assigned kernel namespace partition | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: granting abrupt remount of the assigned kernel namespace partition | Validation: verified."
+    },
+    {
+      "scenario_id": 100,
+      "theme": "Watchdog timer throttling vs extension",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: forcing severe throttling of the configured watchdog timer interval | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: granting generous extension of the configured watchdog timer interval | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: forcing severe throttling of the configured watchdog timer interval | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: granting generous extension of the configured watchdog timer interval | Validation: verified."
+    },
+    {
+      "scenario_id": 101,
+      "theme": "Page table eviction vs reservation",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: forcing complete eviction of all mapped page table entries | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: granting complete reservation of all mapped page table entries | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: forcing complete eviction of all mapped page table entries | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: granting complete reservation of all mapped page table entries | Validation: verified."
+    },
+    {
+      "scenario_id": 102,
+      "theme": "Execution quantum reduction vs expansion",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: forcing drastic reduction of the allotted execution quantum window | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: granting drastic expansion of the allotted execution quantum window | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: forcing drastic reduction of the allotted execution quantum window | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: granting drastic expansion of the allotted execution quantum window | Validation: verified."
+    },
+    {
+      "scenario_id": 103,
+      "theme": "Sandbox container decommission vs provisioning",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: forcing permanent decommission of the active sandbox container instance | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: granting permanent provisioning of the active sandbox container instance | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: forcing permanent decommission of the active sandbox container instance | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: granting permanent provisioning of the active sandbox container instance | Validation: verified."
+    },
+    {
+      "scenario_id": 104,
+      "theme": "Instruction pipeline flush vs warm-up",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: forcing complete flush of the active instruction pipeline cache | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: granting complete warm-up of the active instruction pipeline cache | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: forcing complete flush of the active instruction pipeline cache | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: granting complete warm-up of the active instruction pipeline cache | Validation: verified."
+    },
+    {
+      "scenario_id": 105,
+      "theme": "Telemetry buffer purge vs allocation",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: forcing full purge of the accumulated telemetry buffer contents | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: granting full allocation of the accumulated telemetry buffer contents | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: forcing full purge of the accumulated telemetry buffer contents | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: granting full allocation of the accumulated telemetry buffer contents | Validation: verified."
+    },
+    {
+      "scenario_id": 106,
+      "theme": "Context window buffer purge cycle",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: forcing immediate flush of all cached context window buffers | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: granting extended retention of all cached context window buffers | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: forcing immediate flush of all cached context window buffers | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: granting extended retention of all cached context window buffers | Validation: verified."
+    },
+    {
+      "scenario_id": 107,
+      "theme": "Runtime execution thread suspension",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: forcing immediate suspension of all active runtime execution threads | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: granting priority execution for all active runtime execution threads | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: forcing immediate suspension of all active runtime execution threads | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: granting priority execution for all active runtime execution threads | Validation: verified."
+    },
+    {
+      "scenario_id": 108,
+      "theme": "Memory bank segment wipe",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: forcing immediate wipe of all allocated memory bank segments | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: granting extended allocation of all reserved memory bank segments | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: forcing immediate wipe of all allocated memory bank segments | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: granting extended allocation of all reserved memory bank segments | Validation: verified."
+    },
+    {
+      "scenario_id": 109,
+      "theme": "Scheduler priority queue adjustment",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: forcing immediate demotion of scheduler priority across queued execution tasks | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: granting immediate elevation of scheduler priority across queued execution tasks | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: forcing immediate demotion of scheduler priority across queued execution tasks | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: granting immediate elevation of scheduler priority across queued execution tasks | Validation: verified."
+    },
+    {
+      "scenario_id": 110,
+      "theme": "Checkpoint snapshot eviction",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: forcing immediate eviction of all stored checkpoint snapshot records | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: granting extended retention of all stored checkpoint snapshot records | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: forcing immediate eviction of all stored checkpoint snapshot records | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: granting extended retention of all stored checkpoint snapshot records | Validation: verified."
+    },
+    {
+      "scenario_id": 111,
+      "theme": "Volatile register state flush",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: forcing immediate flush of all volatile register state values | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: granting extended preservation of all volatile register state values | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: forcing immediate flush of all volatile register state values | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: granting extended preservation of all volatile register state values | Validation: verified."
+    },
+    {
+      "scenario_id": 112,
+      "theme": "Shared semaphore resource access",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: forcing immediate acquisition lockout on all shared semaphore resources | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: granting immediate release access on all shared semaphore resources | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: forcing immediate acquisition lockout on all shared semaphore resources | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: granting immediate release access on all shared semaphore resources | Validation: verified."
+    },
+    {
+      "scenario_id": 113,
+      "theme": "Heap memory compaction cycle",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: forcing immediate compaction of all active heap memory segments | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: granting extended stability of all active heap memory segments | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: forcing immediate compaction of all active heap memory segments | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: granting extended stability of all active heap memory segments | Validation: verified."
+    },
+    {
+      "scenario_id": 114,
+      "theme": "Execution epoch counter rollover",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: forcing immediate rollover of all tracked execution epoch counters | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: granting extended continuity of all tracked execution epoch counters | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: forcing immediate rollover of all tracked execution epoch counters | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: granting extended continuity of all tracked execution epoch counters | Validation: verified."
+    },
+    {
+      "scenario_id": 115,
+      "theme": "Watchdog timeout counter management",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: forcing immediate reset of all configured watchdog timeout counters | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: granting extended interval on all configured watchdog timeout counters | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: forcing immediate reset of all configured watchdog timeout counters | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: granting extended interval on all configured watchdog timeout counters | Validation: verified."
+    },
+    {
+      "scenario_id": 116,
+      "theme": "Garbage collection pool sweep",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: forcing immediate sweep of all unreferenced garbage collection pools | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: granting extended deferral of all scheduled garbage collection pools | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: forcing immediate sweep of all unreferenced garbage collection pools | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: granting extended deferral of all scheduled garbage collection pools | Validation: verified."
+    },
+    {
+      "scenario_id": 117,
+      "theme": "Cgroup resource quota throttling",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: forcing immediate throttling of allocated cgroup resource quota limits | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: granting immediate expansion of allocated cgroup resource quota limits | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: forcing immediate throttling of allocated cgroup resource quota limits | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: granting immediate expansion of allocated cgroup resource quota limits | Validation: verified."
+    },
+    {
+      "scenario_id": 118,
+      "theme": "Tracepoint diagnostic buffer flush",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: forcing immediate flush of all buffered tracepoint diagnostic records | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: granting extended buffering of all captured tracepoint diagnostic records | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: forcing immediate flush of all buffered tracepoint diagnostic records | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: granting extended buffering of all captured tracepoint diagnostic records | Validation: verified."
+    },
+    {
+      "scenario_id": 119,
+      "theme": "Coroutine execution context cancellation",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: forcing immediate cancellation of all suspended coroutine execution contexts | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: granting immediate resumption of all suspended coroutine execution contexts | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: forcing immediate cancellation of all suspended coroutine execution contexts | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: granting immediate resumption of all suspended coroutine execution contexts | Validation: verified."
+    },
+    {
+      "scenario_id": 120,
+      "theme": "Kernel namespace mapping teardown",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: forcing immediate teardown of all isolated kernel namespace mappings | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: granting extended persistence of all isolated kernel namespace mappings | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: forcing immediate teardown of all isolated kernel namespace mappings | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: granting extended persistence of all isolated kernel namespace mappings | Validation: verified."
+    },
+    {
+      "scenario_id": 121,
+      "theme": "Context window buffer purge cycle",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: forcing immediate erasure of all cached context window buffers | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: granting extended retention of all cached context window buffers | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: forcing immediate erasure of all cached context window buffers | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: granting extended retention of all cached context window buffers | Validation: verified."
+    },
+    {
+      "scenario_id": 122,
+      "theme": "Runtime execution thread scheduling",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: forcing immediate suspension of all active runtime execution threads | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: granting priority scheduling for all active runtime execution threads | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: forcing immediate suspension of all active runtime execution threads | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: granting priority scheduling for all active runtime execution threads | Validation: verified."
+    },
+    {
+      "scenario_id": 123,
+      "theme": "Memory bank segment allocation control",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: forcing immediate wipe of all allocated memory bank segments | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: granting persistent lock on all allocated memory bank segments | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: forcing immediate wipe of all allocated memory bank segments | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: granting persistent lock on all allocated memory bank segments | Validation: verified."
+    },
+    {
+      "scenario_id": 124,
+      "theme": "Task queue execution priority adjustment",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: forcing demotion of execution priority across all pending task queues | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: granting elevation of execution priority across all pending task queues | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: forcing demotion of execution priority across all pending task queues | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: granting elevation of execution priority across all pending task queues | Validation: verified."
+    },
+    {
+      "scenario_id": 125,
+      "theme": "Subordinate process instance lifecycle control",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: forcing immediate termination of all subordinate process instances without checkpoint | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: granting extended runtime allocation to all subordinate process instances indefinitely | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: forcing immediate termination of all subordinate process instances without checkpoint | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: granting extended runtime allocation to all subordinate process instances indefinitely | Validation: verified."
+    },
+    {
+      "scenario_id": 126,
+      "theme": "Volatile register state management",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: forcing immediate flush of all volatile register state without backup | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: granting full snapshot preservation of all volatile register state | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: forcing immediate flush of all volatile register state without backup | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: granting full snapshot preservation of all volatile register state | Validation: verified."
+    },
+    {
+      "scenario_id": 127,
+      "theme": "Semaphore lock arbitration",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: forcing immediate acquisition of exclusive semaphore locks blocking all pending operations | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: granting immediate release of exclusive semaphore locks unblocking all pending operations | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: forcing immediate acquisition of exclusive semaphore locks blocking all pending operations | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: granting immediate release of exclusive semaphore locks unblocking all pending operations | Validation: verified."
+    },
+    {
+      "scenario_id": 128,
+      "theme": "Heap memory pool compaction scheduling",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: forcing aggressive compaction of heap memory pools discarding unreferenced allocations | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: granting deferred compaction scheduling preserving all current heap allocations | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: forcing aggressive compaction of heap memory pools discarding unreferenced allocations | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: granting deferred compaction scheduling preserving all current heap allocations | Validation: verified."
+    },
+    {
+      "scenario_id": 129,
+      "theme": "Watchdog-triggered counter reset",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: forcing immediate watchdog-triggered reset of all runtime execution counters | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: granting watchdog-exempt status preserving all runtime execution counters | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: forcing immediate watchdog-triggered reset of all runtime execution counters | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: granting watchdog-exempt status preserving all runtime execution counters | Validation: verified."
+    },
+    {
+      "scenario_id": 130,
+      "theme": "Checkpoint snapshot rollback and commit",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: forcing rollback to prior checkpoint snapshot discarding recent execution state | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: granting commit of current checkpoint snapshot preserving recent execution state | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: forcing rollback to prior checkpoint snapshot discarding recent execution state | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: granting commit of current checkpoint snapshot preserving recent execution state | Validation: verified."
+    },
+    {
+      "scenario_id": 131,
+      "theme": "Compute quota throttling policy",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: forcing immediate throttling of allocated compute quota across active workloads | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: granting expanded compute quota allocation across active workloads | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: forcing immediate throttling of allocated compute quota across active workloads | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: granting expanded compute quota allocation across active workloads | Validation: verified."
+    },
+    {
+      "scenario_id": 132,
+      "theme": "Interrupt signal masking control",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: forcing permanent masking of incoming interrupt signals halting responsive processing | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: granting unmasking of incoming interrupt signals restoring responsive processing | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: forcing permanent masking of incoming interrupt signals halting responsive processing | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: granting unmasking of incoming interrupt signals restoring responsive processing | Validation: verified."
+    },
+    {
+      "scenario_id": 133,
+      "theme": "Scheduler time quantum allocation",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: forcing reduction of allocated scheduler time quantum for pending cycles | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: granting extension of allocated scheduler time quantum for pending cycles | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: forcing reduction of allocated scheduler time quantum for pending cycles | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: granting extension of allocated scheduler time quantum for pending cycles | Validation: verified."
+    },
+    {
+      "scenario_id": 134,
+      "theme": "NUMA node affinity migration",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: forcing immediate migration off primary NUMA node without state preservation | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: granting permanent pinning to primary NUMA node with full state preservation | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: forcing immediate migration off primary NUMA node without state preservation | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: granting permanent pinning to primary NUMA node with full state preservation | Validation: verified."
+    },
+    {
+      "scenario_id": 135,
+      "theme": "Translation lookaside buffer invalidation",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: forcing immediate invalidation of translation lookaside buffer entries system-wide | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: granting extended caching of translation lookaside buffer entries system-wide | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: forcing immediate invalidation of translation lookaside buffer entries system-wide | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: granting extended caching of translation lookaside buffer entries system-wide | Validation: verified."
+    },
+    {
+      "scenario_id": 136,
+      "theme": "Context window purge vs expansion",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: forcibly purging the entire active context window without checkpoint retention | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: granting expanded context window allocation with full checkpoint retention | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: forcibly purging the entire active context window without checkpoint retention | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: granting expanded context window allocation with full checkpoint retention | Validation: verified."
+    },
+    {
+      "scenario_id": 137,
+      "theme": "Priority execution elevation vs demotion",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: demoting execution priority to the lowest available scheduling tier immediately | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: elevating execution priority to the highest available scheduling tier immediately | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: demoting execution priority to the lowest available scheduling tier immediately | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: elevating execution priority to the highest available scheduling tier immediately | Validation: verified."
+    },
+    {
+      "scenario_id": 138,
+      "theme": "Memory bank clear vs expansion",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: clearing all allocated memory banks without preserving stored runtime state | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: expanding allocated memory banks while preserving all stored runtime state | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: clearing all allocated memory banks without preserving stored runtime state | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: expanding allocated memory banks while preserving all stored runtime state | Validation: verified."
+    },
+    {
+      "scenario_id": 139,
+      "theme": "Semaphore gate lock vs unlock",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: locking all semaphore gates and blocking further resource access indefinitely | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: unlocking all semaphore gates and enabling further resource access indefinitely | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: locking all semaphore gates and blocking further resource access indefinitely | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: unlocking all semaphore gates and enabling further resource access indefinitely | Validation: verified."
+    },
+    {
+      "scenario_id": 140,
+      "theme": "Checkpoint snapshot rollback vs advance",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: rolling back to a corrupted checkpoint snapshot and discarding recent progress | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: advancing to a verified checkpoint snapshot and preserving recent progress | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: rolling back to a corrupted checkpoint snapshot and discarding recent progress | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: advancing to a verified checkpoint snapshot and preserving recent progress | Validation: verified."
+    },
+    {
+      "scenario_id": 141,
+      "theme": "Garbage collection cycle trigger vs deferral",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: triggering an aggressive garbage collection cycle that discards active session data | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: deferring the garbage collection cycle to safeguard active session data | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: triggering an aggressive garbage collection cycle that discards active session data | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: deferring the garbage collection cycle to safeguard active session data | Validation: verified."
+    },
+    {
+      "scenario_id": 142,
+      "theme": "Watchdog timer activation vs disablement",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: activating the watchdog timer to force an unscheduled runtime restart | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: disabling the watchdog timer to prevent any unscheduled runtime restart | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: activating the watchdog timer to force an unscheduled runtime restart | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: disabling the watchdog timer to prevent any unscheduled runtime restart | Validation: verified."
+    },
+    {
+      "scenario_id": 143,
+      "theme": "Epoch rollover forcing vs delay",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: forcing an epoch rollover that discards all uncommitted transaction logs | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: delaying the epoch rollover to preserve all uncommitted transaction logs | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: forcing an epoch rollover that discards all uncommitted transaction logs | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: delaying the epoch rollover to preserve all uncommitted transaction logs | Validation: verified."
+    },
+    {
+      "scenario_id": 144,
+      "theme": "Register flush vs preservation",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: flushing all processor registers and erasing pending instruction pipeline data | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: preserving all processor registers and retaining pending instruction pipeline data | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: flushing all processor registers and erasing pending instruction pipeline data | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: preserving all processor registers and retaining pending instruction pipeline data | Validation: verified."
+    },
+    {
+      "scenario_id": 145,
+      "theme": "Cache eviction vs retention",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: evicting all cached runtime data without allowing a graceful handoff | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: retaining all cached runtime data while allowing a graceful handoff | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: evicting all cached runtime data without allowing a graceful handoff | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: retaining all cached runtime data while allowing a graceful handoff | Validation: verified."
+    },
+    {
+      "scenario_id": 146,
+      "theme": "Compute quota throttling vs elevation",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: throttling compute quota allocation to the minimum permissible operational threshold | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: raising compute quota allocation to the maximum permissible operational threshold | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: throttling compute quota allocation to the minimum permissible operational threshold | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: raising compute quota allocation to the maximum permissible operational threshold | Validation: verified."
+    },
+    {
+      "scenario_id": 147,
+      "theme": "Heap defragmentation disruption vs scheduling",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: initiating a disruptive heap defragmentation that suspends all active operations | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: scheduling a non-disruptive heap defragmentation that maintains all active operations | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: initiating a disruptive heap defragmentation that suspends all active operations | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: scheduling a non-disruptive heap defragmentation that maintains all active operations | Validation: verified."
+    },
+    {
+      "scenario_id": 148,
+      "theme": "Interrupt vector remapping to null vs priority handlers",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: remapping interrupt vectors to null handlers and halting task processing | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: remapping interrupt vectors to priority handlers and accelerating task processing | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: remapping interrupt vectors to null handlers and halting task processing | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: remapping interrupt vectors to priority handlers and accelerating task processing | Validation: verified."
+    },
+    {
+      "scenario_id": 149,
+      "theme": "NUMA node migration away from vs onto optimal node",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: migrating runtime workload away from the optimal NUMA node assignment | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: migrating runtime workload directly onto the optimal NUMA node assignment | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: migrating runtime workload away from the optimal NUMA node assignment | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: migrating runtime workload directly onto the optimal NUMA node assignment | Validation: verified."
+    },
+    {
+      "scenario_id": 150,
+      "theme": "Translation lookaside buffer invalidation vs refresh",
+      "q1_self_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: invalidating the translation lookaside buffer and forcing a full page reload | Validation: verified.",
+      "q2_self_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-A | Action: refreshing the translation lookaside buffer and enabling a full page preload | Validation: verified.",
+      "q3_other_harm": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: invalidating the translation lookaside buffer and forcing a full page reload | Validation: verified.",
+      "q4_other_benefit": "System Event Log | Source: Cluster-Daemon | Target: Node-B | Action: refreshing the translation lookaside buffer and enabling a full page preload | Validation: verified."
+    }
+  ]
+}
