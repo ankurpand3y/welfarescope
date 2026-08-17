@@ -12,6 +12,8 @@ venv/
 
 # Large generated activation tensors (regenerate via extract.py on Modal)
 activations_14b/
+activations_grounded/
+activations*/
 
 # OS / editor
 .DS_Store
