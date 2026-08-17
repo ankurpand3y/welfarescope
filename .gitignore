@@ -36,6 +36,9 @@ Digital Minds Research Sprint submission template.md
 # Final report/presentation/video deliverables (kept outside git)
 report/
 
+# Original planning/spec doc
+self_preservation.md
+
 # OS / editor
 .DS_Store
 .vscode/

@@ -47,8 +47,6 @@ signal just a domain-specific artifact?
    figures/scripts used to generate them. **Not tracked in git** (large
    binaries — PDFs, video, rendered figures).
 
-See `self_preservation.md` for the full step-by-step spec.
-
 ## Key results (layer 34, see `evaluate_report.json` / `reliability_report.json`)
 
 - Zero-shot held-out (Domain D) probes correctly rank
