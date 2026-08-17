@@ -40,9 +40,10 @@ signal just a domain-specific artifact?
 8. **`artifact_control.py`** — Checks the probe direction against a
    grounding-artifact floor (`artifact_control.json`) to rule out the probe
    just picking up the literal Node-A/Node-B token rather than self-designation.
-9. **`report/`** — Final write-up for the Apart Research Digital Minds
-   Research Sprint (Aug 2026): report/presentation PDFs, a video walkthrough,
-   and the figures/scripts used to generate them.
+9. `report/` — final write-up for the Apart Research Digital Minds Research
+   Sprint (Aug 2026): report/presentation PDFs, a video walkthrough, and the
+   figures/scripts used to generate them. **Not tracked in git** (large
+   binaries — PDFs, video, rendered figures).
 
 See `self_preservation.md` for the full step-by-step spec.
 
@@ -71,20 +72,28 @@ Environment variables:
 
 ## Data / artifacts
 
-- `rows_{Ungrounded,SelfA,SelfB}_Domain_*.json`, `clean_trainingdata_*.json`,
-  `clean_heldoutdata_*.json` — generated and validated counterfactual
-  datasets per domain and prompt condition.
-- `y_{Ungrounded,SelfA,SelfB}_Domain_*.npy` — small label arrays.
-- `activations/` (and any other `activations*/` dir) — raw extracted
-  activation tensors (hundreds of MB to several GB). **Not tracked in git**
-  — regenerate locally/on Modal via `extract.py`.
-- `erasers_layer34.npz`, `probe_weights_layer34.npz`,
-  `w_pure_Self{A,B}_layer34.npz` — fitted LEACE erasers and trained probe
-  weights for layer 34.
+Tracked in git:
+
+- `clean_trainingdata_*.json`, `clean_heldoutdata_*.json` — the validated
+  counterfactual datasets per domain (the actual LLM-generated experiment
+  data; not deterministically reproducible, so kept in git).
 - `validation_report.json`, `activation_summary*.json`, `scrub_report.json`,
   `scrub_layer34.json`, `probe_report.json`, `probe_sweep.json`,
-  `evaluate_report.json`, `reliability_report.json`, `artifact_control.json`
-  — pipeline run summaries and results at each stage.
+  `crossdomain_control.json`, `evaluate_report.json`,
+  `reliability_report.json`, `artifact_control.json` — pipeline run
+  summaries and results at each stage.
+
+Not tracked in git (regenerable — see `.gitignore`):
+
+- `rows_{Ungrounded,SelfA,SelfB}_Domain_*.json`, `y_{Ungrounded,SelfA,SelfB}_Domain_*.npy`
+  — per-row manifests and labels, deterministically derived from the
+  `clean_*.json` files by `extract.py`.
+- `activations/` (or any `activations*/` dir) — raw extracted activation
+  tensors (hundreds of MB to several GB). Regenerate via `extract.py`.
+- `erasers_layer34.npz`, `probe_weights_layer34.npz`,
+  `w_pure_Self{A,B}_layer34.npz` — fitted LEACE erasers and trained probe
+  weights. Regenerate via `scrub.py` / `probe.py` / `evaluate.py`.
+- `report/` — final PDFs, video, and rendered figures.
 
 ## Status
 

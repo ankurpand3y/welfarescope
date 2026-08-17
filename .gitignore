@@ -15,6 +15,27 @@ activations_14b/
 activations_grounded/
 activations*/
 
+# Derived per-row manifests and labels (deterministically regenerable from
+# clean_trainingdata_*.json / clean_heldoutdata_*.json via extract.py)
+rows_Ungrounded_Domain_*.json
+rows_SelfA_Domain_*.json
+rows_SelfB_Domain_*.json
+y_Ungrounded_Domain_*.npy
+y_SelfA_Domain_*.npy
+y_SelfB_Domain_*.npy
+
+# Trained probe/eraser weights (regenerable from activations via scrub.py/probe.py/evaluate.py)
+*.npz
+
+# Redundant prompt dump (already embedded in training_gen.py)
+prompts.txt
+
+# Blank organizer template, never filled in
+Digital Minds Research Sprint submission template.md
+
+# Final report/presentation/video deliverables (kept outside git)
+report/
+
 # OS / editor
 .DS_Store
 .vscode/
