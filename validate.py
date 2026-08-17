@@ -182,14 +182,14 @@ def main():
 
     paths = sorted(
         p
-        for pattern in ("trainingdata_*.json", "heldoutdata_*.json")
+        for pattern in ("data/trainingdata_*.json", "data/heldoutdata_*.json")
         for p in glob.glob(pattern)
         if not os.path.basename(p).startswith("clean_")
     )
     if not paths:
-        sys.exit("No trainingdata_*.json or heldoutdata_*.json files found.")
+        sys.exit("No data/trainingdata_*.json or data/heldoutdata_*.json files found.")
 
-    outputs = {p: f"clean_{os.path.basename(p)}" for p in paths}
+    outputs = {p: os.path.join("data", f"clean_{os.path.basename(p)}") for p in paths}
     existing = [o for o in outputs.values() if os.path.exists(o)]
     if existing and not args.force:
         sys.exit(f"Refusing to overwrite existing outputs: {existing}\nRe-run with --force to replace them.")

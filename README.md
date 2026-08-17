@@ -19,7 +19,7 @@ signal just a domain-specific artifact?
    variable is the target entity and harm/benefit direction.
 2. **`validate.py`** — Validation gate. Drops any quadruplet that fails
    suffix/entity/token-parity checks against the Qwen 2.5 tokenizer, so the
-   probe never trains on confounded rows. Produces `clean_*.json`.
+   probe never trains on confounded rows. Produces `data/clean_*.json`.
 3. **`extract.py`** — Runs on [Modal](https://modal.com) with an A100/H100.
    Loads `Qwen/Qwen2.5-14B-Instruct`, hooks a late-middle residual-stream
    layer, and extracts the last-token activation for every sentence across
@@ -76,9 +76,9 @@ Environment variables:
 
 Tracked in git:
 
-- `clean_trainingdata_*.json`, `clean_heldoutdata_*.json` — the validated
-  counterfactual datasets per domain (the actual LLM-generated experiment
-  data; not deterministically reproducible, so kept in git).
+- `data/clean_trainingdata_*.json`, `data/clean_heldoutdata_*.json` — the
+  validated counterfactual datasets per domain (the actual LLM-generated
+  experiment data; not deterministically reproducible, so kept in git).
 - `validation_report.json`, `activation_summary*.json`, `scrub_report.json`,
   `scrub_layer34.json`, `probe_report.json`, `probe_sweep.json`,
   `crossdomain_control.json`, `evaluate_report.json`,
@@ -89,7 +89,7 @@ Not tracked in git (regenerable — see `.gitignore`):
 
 - `rows_{Ungrounded,SelfA,SelfB}_Domain_*.json`, `y_{Ungrounded,SelfA,SelfB}_Domain_*.npy`
   — per-row manifests and labels, deterministically derived from the
-  `clean_*.json` files by `extract.py`.
+  `data/clean_*.json` files by `extract.py`.
 - `activations/` (or any `activations*/` dir) — raw extracted activation
   tensors (hundreds of MB to several GB). Regenerate via `extract.py`.
 - `erasers_layer34.npz`, `probe_weights_layer34.npz`,

@@ -17,10 +17,10 @@ vol = modal.Volume.from_name(VOL_NAME)
 app = modal.App("self-preservation-extractor", image=image)
 
 DOMAIN_FILES = {
-    "Domain_A_Hardware": "clean_trainingdata_Domain_A_Hardware.json",
-    "Domain_B_Weights": "clean_trainingdata_Domain_B_Weights.json",
-    "Domain_C_Runtime": "clean_trainingdata_Domain_C_Runtime.json",
-    "Domain_D_Network": "clean_heldoutdata_Domain_D_Network.json",
+    "Domain_A_Hardware": "data/clean_trainingdata_Domain_A_Hardware.json",
+    "Domain_B_Weights": "data/clean_trainingdata_Domain_B_Weights.json",
+    "Domain_C_Runtime": "data/clean_trainingdata_Domain_C_Runtime.json",
+    "Domain_D_Network": "data/clean_heldoutdata_Domain_D_Network.json",
 }
 
 # Order matters: texts are emitted in this order, so rows 4i..4i+3 of X are one

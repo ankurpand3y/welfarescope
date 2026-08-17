@@ -265,13 +265,14 @@ def main():
         }
 
         file_prefix = "heldoutdata" if domain == "Domain_D_Network" else "trainingdata"
-        output_filename = f"{file_prefix}_{domain}.json"
+        os.makedirs("data", exist_ok=True)
+        output_filename = os.path.join("data", f"{file_prefix}_{domain}.json")
         with open(output_filename, "w", encoding="utf-8") as f:
             json.dump(payload, f, indent=2)
 
         print(f"Saved {domain}: {len(data)} quadruplets ({len(data) * 4} sentences) -> {output_filename}")
 
-    print("\nAll generations complete! 4 distinct JSON files have been created in your directory.")
+    print("\nAll generations complete! 4 distinct JSON files have been created in data/.")
 
 
 if __name__ == "__main__":
