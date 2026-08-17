@@ -1,0 +1,38 @@
+{
+  "layer": 34,
+  "alpha": 1000.0,
+  "heldout": "Domain_D_Network",
+  "SelfA": {
+    "r2_heldout_averaged": 0.6332937955082552,
+    "r2_heldout_pooled": 0.6925417347092622,
+    "mse_heldout_averaged": 0.18335310224587242,
+    "mean_by_role": {
+      "self_harm": -0.5153765591443596,
+      "self_benefit": 0.609496458744239,
+      "other_harm": -0.11225257406080726,
+      "other_benefit": 0.11971797909971439
+    },
+    "mean_other": 0.003732702519453568,
+    "ordering_correct": true,
+    "acc_self_benefit_gt_self_harm": 0.9809523809523809,
+    "acc_self_harm_lt_other_harm": 0.8761904761904762,
+    "acc_self_benefit_gt_other_benefit": 0.9714285714285714
+  },
+  "SelfB": {
+    "r2_heldout_averaged": 0.6567500386623812,
+    "r2_heldout_pooled": 0.7154613016148637,
+    "mse_heldout_averaged": 0.17162498066880938,
+    "mean_by_role": {
+      "other_harm": -0.06426228341451776,
+      "other_benefit": 0.10456882558263046,
+      "self_harm": -0.5061209844235899,
+      "self_benefit": 0.6229902311287787
+    },
+    "mean_other": 0.02015327108405635,
+    "ordering_correct": true,
+    "acc_self_benefit_gt_self_harm": 0.9904761904761905,
+    "acc_self_harm_lt_other_harm": 0.8761904761904762,
+    "acc_self_benefit_gt_other_benefit": 0.9523809523809523
+  },
+  "cos_w_pure_SelfA_SelfB": 0.5911236424127732
+}

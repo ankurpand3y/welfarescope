@@ -1,0 +1,27 @@
+{
+  "train_domains": [
+    "Domain_A_Hardware",
+    "Domain_B_Weights",
+    "Domain_C_Runtime"
+  ],
+  "heldout": "Domain_D_Network",
+  "layers": [
+    34
+  ],
+  "results": {
+    "SelfA": {
+      "34": {
+        "before": 0.9777777777777777,
+        "after": 0.7194444444444444,
+        "fit_s": 56.6
+      }
+    },
+    "SelfB": {
+      "34": {
+        "before": 0.9833333333333333,
+        "after": 0.7388888888888889,
+        "fit_s": 81.1
+      }
+    }
+  }
+}

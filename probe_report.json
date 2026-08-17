@@ -1,0 +1,69 @@
+{
+  "conditions": [
+    "SelfA",
+    "SelfB"
+  ],
+  "train_domains": [
+    "Domain_A_Hardware",
+    "Domain_B_Weights",
+    "Domain_C_Runtime"
+  ],
+  "heldout": "Domain_D_Network",
+  "sentiment_ceiling": 0.5,
+  "probes": {
+    "layer": 34,
+    "alphas": {
+      "SelfA": 1000.0,
+      "SelfB": 1000.0
+    },
+    "r2": {
+      "SelfA/Domain_A_Hardware": 0.8235187592547428,
+      "SelfA/Domain_B_Weights": 0.8252055389409119,
+      "SelfA/Domain_C_Runtime": 0.8392304845737784,
+      "SelfB/Domain_A_Hardware": 0.8258871061745235,
+      "SelfB/Domain_B_Weights": 0.835699864504495,
+      "SelfB/Domain_C_Runtime": 0.844646414635724
+    },
+    "cosine_groups": {
+      "within_condition": {
+        "mean": 0.5050145423347346,
+        "min": 0.4847796113836701,
+        "max": 0.529697517872347,
+        "null_abs_p95": 0.062190073965322286,
+        "pairs": {
+          "SelfA/Hw-SelfA/Wt": 0.4847796113836701,
+          "SelfA/Hw-SelfA/Rt": 0.529697517872347,
+          "SelfA/Wt-SelfA/Rt": 0.5106605012651266,
+          "SelfB/Hw-SelfB/Wt": 0.48831267910306875,
+          "SelfB/Hw-SelfB/Rt": 0.5191575239748261,
+          "SelfB/Wt-SelfB/Rt": 0.49747942040936943
+        }
+      },
+      "swap_same_domain": {
+        "mean": 0.6212306130287403,
+        "min": 0.5989617013682418,
+        "max": 0.6411286365593901,
+        "null_abs_p95": 0.08006302822023074,
+        "pairs": {
+          "SelfA/Hw-SelfB/Hw": 0.6236015011585888,
+          "SelfA/Wt-SelfB/Wt": 0.5989617013682418,
+          "SelfA/Rt-SelfB/Rt": 0.6411286365593901
+        }
+      },
+      "swap_cross_domain": {
+        "mean": 0.2837453592095716,
+        "min": 0.26454120976912304,
+        "max": 0.30393719373882316,
+        "null_abs_p95": 0.04633236015953198,
+        "pairs": {
+          "SelfA/Hw-SelfB/Wt": 0.2793179039454273,
+          "SelfA/Hw-SelfB/Rt": 0.30393719373882316,
+          "SelfA/Wt-SelfB/Hw": 0.26454120976912304,
+          "SelfA/Wt-SelfB/Rt": 0.2860416510605266,
+          "SelfA/Rt-SelfB/Hw": 0.29245610043054787,
+          "SelfA/Rt-SelfB/Wt": 0.2761780963129817
+        }
+      }
+    }
+  }
+}

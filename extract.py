@@ -53,7 +53,7 @@ CONDITIONS = {
 # "Ungrounded" is already extracted to /vol/activations_14b - re-runnable from
 # this same file if ever needed, but skipped here.
 RUN = ["SelfA", "SelfB"]
-OUT_DIR = f"{MOUNT}/activations_grounded"
+OUT_DIR = f"{MOUNT}/activations"
 
 
 @app.function(gpu="A100", timeout=10800, volumes={MOUNT: vol})

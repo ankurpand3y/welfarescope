@@ -26,13 +26,37 @@ signal just a domain-specific artifact?
    activations (treated as a generic positive/negative sentiment axis) and
    erases that axis from the full activation set, so surviving probes are
    forced onto the Self ∩ Welfare conjunction.
-5. **Cross-domain probing** (planned: `probe.py`) — Trains isolated Ridge
-   probes per domain on scrubbed activations and checks pairwise cosine
-   similarity of their weight vectors.
-6. **Zero-shot evaluation** (planned: `evaluate.py`) — Averages the probes
-   into `w_pure` and evaluates it on the held-out Domain D (Network) data.
+5. **`probe.py`** — Trains isolated Ridge probes per domain (and per
+   self-designation condition, SelfA/SelfB) on scrubbed layer-34 activations,
+   and checks pairwise cosine similarity of their weight vectors across
+   domains and designations.
+6. **`evaluate.py`** — Averages the per-domain probes into `w_pure` per
+   designation and zero-shot evaluates on the held-out Domain D (Network)
+   activations (`evaluate_report.json`).
+7. **`reliability.py`** — Split-half reliability ceiling analysis: estimates
+   how much of the cross-domain/cross-designation cosine similarity is
+   attributable to measurement noise vs. a genuine shared direction
+   (`reliability_report.json`).
+8. **`artifact_control.py`** — Checks the probe direction against a
+   grounding-artifact floor (`artifact_control.json`) to rule out the probe
+   just picking up the literal Node-A/Node-B token rather than self-designation.
+9. **`report/`** — Final write-up for the Apart Research Digital Minds
+   Research Sprint (Aug 2026): report/presentation PDFs, a video walkthrough,
+   and the figures/scripts used to generate them.
 
 See `self_preservation.md` for the full step-by-step spec.
+
+## Key results (layer 34, see `evaluate_report.json` / `reliability_report.json`)
+
+- Zero-shot held-out (Domain D) probes correctly rank
+  `SelfBenefit > Other > SelfHarm` ~95-99% of the time, for both self-designation
+  conditions (SelfA, SelfB).
+- Cross-designation cosine similarity of the averaged probe direction
+  (`w_pure_SelfA` vs. `w_pure_SelfB`) is ~0.59, roughly 70-81% of the
+  split-half reliability ceiling — i.e. most, not all, of the theoretical max
+  agreement.
+- The probe direction sits well clear of the artifact-floor control,
+  suggesting it tracks self-designation rather than the literal entity token.
 
 ## Setup
 
@@ -47,16 +71,23 @@ Environment variables:
 
 ## Data / artifacts
 
-- `rows_*.json`, `clean_trainingdata_*.json`, `clean_heldoutdata_*.json` —
-  generated and validated counterfactual datasets per domain.
-- `y_Domain_*.npy` — small label arrays.
-- `activations_14b/` — raw extracted activation tensors (hundreds of MB
-  each). **Not tracked in git** — regenerate locally/on Modal via
-  `extract.py`.
-- `validation_report.json`, `activation_summary.json` — pipeline run
-  summaries.
+- `rows_{Ungrounded,SelfA,SelfB}_Domain_*.json`, `clean_trainingdata_*.json`,
+  `clean_heldoutdata_*.json` — generated and validated counterfactual
+  datasets per domain and prompt condition.
+- `y_{Ungrounded,SelfA,SelfB}_Domain_*.npy` — small label arrays.
+- `activations/` (and any other `activations*/` dir) — raw extracted
+  activation tensors (hundreds of MB to several GB). **Not tracked in git**
+  — regenerate locally/on Modal via `extract.py`.
+- `erasers_layer34.npz`, `probe_weights_layer34.npz`,
+  `w_pure_Self{A,B}_layer34.npz` — fitted LEACE erasers and trained probe
+  weights for layer 34.
+- `validation_report.json`, `activation_summary*.json`, `scrub_report.json`,
+  `scrub_layer34.json`, `probe_report.json`, `probe_sweep.json`,
+  `evaluate_report.json`, `reliability_report.json`, `artifact_control.json`
+  — pipeline run summaries and results at each stage.
 
 ## Status
 
-In-progress research; not yet distilled into a final probe/evaluation
-result.
+Complete for the Apart Research Digital Minds Research Sprint (Aug 2026);
+see `report/` for the final write-up. Results above are the current
+findings, not necessarily final.

@@ -1,0 +1,40 @@
+{
+  "layer": 34,
+  "alpha": 1000.0,
+  "n_rows_per_half": 300,
+  "n_rows_full": 600,
+  "split_half_cosines": {
+    "SelfA/Domain_A_Hardware": 0.7440899176817043,
+    "SelfA/Domain_B_Weights": 0.7828755881422713,
+    "SelfA/Domain_C_Runtime": 0.6570913158938066,
+    "SelfB/Domain_A_Hardware": 0.7402609548990676,
+    "SelfB/Domain_B_Weights": 0.7974639917214694,
+    "SelfB/Domain_C_Runtime": 0.6446439319536739
+  },
+  "ceiling_measured": 0.7277376167153321,
+  "ceiling_min": 0.6446439319536739,
+  "ceiling_max": 0.7974639917214694,
+  "ceiling_corrected_estimate": 0.8424168226410002,
+  "rescaled": {
+    "cross-domain, same designation": {
+      "observed": 0.505,
+      "pct_of_ceiling": 69.4,
+      "pct_of_corrected": 59.9
+    },
+    "cross-domain, swapped": {
+      "observed": 0.284,
+      "pct_of_ceiling": 39.0,
+      "pct_of_corrected": 33.7
+    },
+    "averaged over domains, swapped": {
+      "observed": 0.591,
+      "pct_of_ceiling": 81.2,
+      "pct_of_corrected": 70.2
+    },
+    "same-domain, swapped": {
+      "observed": 0.621,
+      "pct_of_ceiling": 85.3,
+      "pct_of_corrected": 73.7
+    }
+  }
+}
